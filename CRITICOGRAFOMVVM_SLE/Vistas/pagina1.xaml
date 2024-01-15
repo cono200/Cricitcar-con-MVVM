@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRITICOGRAFOMVVM_SLE.Vistas.pagina1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="CRITICOGRAFO" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+
+            <Label FontSize="25"
+               TextColor="Blue"
+               FontAttributes="Bold">
+                Nombre
+            </Label>
+
+            <Frame 
+        >
+                <Entry Placeholder="Daniel"
+                       Text="{Binding Nombre}"
+                  
+                   Keyboard="Text"
+                   x:Name="Nombre"
+                   
+           />
+            </Frame>
+
+
+            <Grid>
+
+                <Label Grid.Row="0"
+                   FontSize="30">Genero</Label>
+                <RadioButton Content="Femenino" Grid.Column="0" Grid.Row="1" IsChecked="{Binding Mujer}"/>
+                <RadioButton Content="Masculino" Grid.Column="1" Grid.Row="1" IsChecked="{Binding Hombre}"/>
+
+
+                <Label Grid.Row="4" Grid.Column="1" Margin="-150,0,0,0" FontSize="20">Alto</Label>
+                <CheckBox Grid.Row="4" Grid.Column="0" Margin="10,-20,0,0" IsChecked="{Binding Alto}"  />
+                <Label Grid.Row="5" Grid.Column="1" Margin="50,-42,0,0" FontSize="20">Feo</Label>
+                <CheckBox Grid.Row="5" Grid.Column="1" Margin="15,-106,0,0" IsChecked="{Binding Feo}" ></CheckBox>
+                <Label Grid.Row="6" Grid.Column="0" Margin="45,-35,0,0" FontSize="20">Listo</Label>
+                <CheckBox Grid.Row="6" Grid.Column="0" Margin="10,-90,0,0" IsChecked="{Binding Listo}" ></CheckBox>
+                <Label Grid.Row="6" Grid.Column="1" Margin="45,-35,0,0" FontSize="20">Extravagante</Label>
+                <CheckBox Grid.Row="6" Grid.Column="1" Margin="10,-90,0,0" IsChecked="{Binding Extravagante}"  ></CheckBox>
+                <Label Grid.Row="7" Grid.Column="1" Margin="45,-35,0,0" FontSize="20">Grande</Label>
+                <CheckBox Grid.Row="7" Grid.Column="1" Margin="10,-90,0,0" IsChecked="{Binding Grande}" ></CheckBox>
+                <Label Grid.Row="7" Grid.Column="0" Margin="45,-35,0,0" FontSize="20">Raro</Label>
+                <CheckBox Grid.Row="7" Grid.Column="0" Margin="10,-90,0,0" IsChecked="{Binding Raro}"  ></CheckBox>
+
+
+
+            </Grid>
+
+            <Button Text="Criticar" FontSize="25" BorderColor="Black"  BorderWidth="5" TextColor="Black" Command="{Binding CriticarCommand}"></Button>
+
+
+            <Entry BackgroundColor="Gray" IsEnabled="False" Text="{Binding Resultado}"/>
+
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
