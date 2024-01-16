@@ -23,6 +23,7 @@ namespace CRITICOGRAFOMVVM_SLE.VistaModelo
         string _aber;
         string _texto;
         string _resultado;
+        int _contador;
       //  string[] opciones = new string[6];
 
         #endregion
@@ -98,6 +99,11 @@ namespace CRITICOGRAFOMVVM_SLE.VistaModelo
             get { return _aber; }
             set { SetValue(ref _aber, value); }
         }
+        public int Contador
+        {
+            get { return _contador; }
+            set { SetValue(ref _contador, value); }
+        }
         
         
 
@@ -111,116 +117,118 @@ namespace CRITICOGRAFOMVVM_SLE.VistaModelo
         {
 
         }
-        public void BtnCriticarLlamar(string palabras)
+        public void resultadoFinal()
         {
-            Resultado = palabras;
+            Criticar();
+            aber = Nombre + "es" + Resultado;
         }
 
         public void Criticar()
         {
-            BtnCriticarLlamar(aber);
-            if (Mujer== true)
+            if (Mujer == true)
             {
-                //string[] opciones = new string[6];
-                //int contador = 0;
-                if (Alto==true)
+                Texto = "";
+                Contador = 0;
+                if (Alto == true)
                 {
-                    Texto = "alta";
-                    
+                    Texto += "alta,";
+                    Contador++;
                 }
-                if (Feo==true)
+                if (Feo == true)
                 {
-                    Texto = "fea";
-                    
+                    Texto += "fea,";
+                    Contador++;
                 }
                 if (Listo == true)
                 {
-                    Texto = "lista";
+                    Texto += "lista,";
+                    Contador++;
                 }
                 if (Extravagante == true)
                 {
-                    Texto = "extravagante";
+                    Texto += "extravagante,";
+                    Contador++;
                 }
                 if (Grande == true)
                 {
-                    Texto = "grande";
-                    
+                    Texto += "grande,";
+                    Contador++;
                 }
                 if (Raro == true)
                 {
-                    Texto = "rara";
+                    Texto += "rara,";
+                    Contador++;
                 }
-                aber += Texto;
 
-                //if (contador > 1)
-                //{
-                //    for (int i = 0; i < contador - 1; i++)
-                //    {
-                //        resultado += opciones[i] + ", ";
-                //    }
-                //    resultado += "y " + opciones[contador - 1] + ".";
-                //}
-                //else
-                //{
-                //    resultado = opciones[0] + ".";
-                //}
-
-                //Resultado.Text = nombre + " es " + resultado;
+                Resultado = "";
+                string[] guardarTexto = Texto.Split(',');
+                if (Contador > 1)
+                {
+                    for (int i = 0; i < Contador - 1; i++)
+                    {
+                        Resultado += guardarTexto[i] + ", ";
+                    }
+                    Resultado = Resultado.Substring(0, Resultado.Length - 2); 
+                    Resultado += " y " + guardarTexto[Contador - 1];
+                }
+                else if (Contador == 1)
+                {
+                    Resultado = guardarTexto[0];
+                }
+                Resultado = Nombre + " es " + Resultado + ".";
             }
+            else
+            {
+                Texto = "";
+                Contador = 0;
+                if (Alto == true)
+                {
+                    Texto += "alto,";
+                    Contador++;
+                }
+                if (Feo == true)
+                {
+                    Texto += "feo,";
+                    Contador++;
+                }
+                if (Listo == true)
+                {
+                    Texto += "listo,";
+                    Contador++;
+                }
+                if (Extravagante == true)
+                {
+                    Texto += "extravagante,";
+                    Contador++;
+                }
+                if (Grande == true)
+                {
+                    Texto += "grande,";
+                    Contador++;
+                }
+                if (Raro == true)
+                {
+                    Texto += "raro,";
+                    Contador++;
+                }
 
-
-
-            //else
-            //{
-            //    string[] opciones = new string[6];
-            //    int contador = 0;
-            //    if (Alto.IsChecked)
-            //    {
-            //        opciones[contador] = "alto";
-            //        contador++;
-            //    }
-            //    if (Feo.IsChecked)
-            //    {
-            //        opciones[contador] = "feo";
-            //        contador++;
-            //    }
-            //    if (Listo.IsChecked)
-            //    {
-            //        opciones[contador] = "listo";
-            //        contador++;
-            //    }
-            //    if (Extravagante.IsChecked)
-            //    {
-            //        opciones[contador] = "extravagante";
-            //        contador++;
-            //    }
-            //    if (Grande.IsChecked)
-            //    {
-            //        opciones[contador] = "grande";
-            //        contador++;
-            //    }
-            //    if (Raro.IsChecked)
-            //    {
-            //        opciones[contador] = "raro";
-            //        contador++;
-            //    }
-
-            //    string resultado = "";
-            //    if (contador > 1)
-            //    {
-            //        for (int i = 0; i < contador - 1; i++)
-            //        {
-            //            resultado += opciones[i] + ", ";
-            //        }
-            //        resultado += "y " + opciones[contador - 1] + ".";
-            //    }
-            //    else //if (contador == 1)
-            //    {
-            //        resultado = opciones[0] + ".";
-            //    }
-
-            //    //Resultado.Text = nombre + " es " + resultado;
-            //}
+                Resultado = "";
+                string[] guardarTexto = Texto.Split(',');
+                if (Contador > 1)
+                {
+                    for (int i = 0; i < Contador - 1; i++)
+                    {
+                        Resultado += guardarTexto[i] + ", ";
+                    }
+                    Resultado = Resultado.Substring(0, Resultado.Length - 2);
+                    Resultado += " y " + guardarTexto[Contador - 1];
+                }
+                else if (Contador == 1)
+                {
+                    Resultado = guardarTexto[0];
+                }
+                Resultado = Nombre + " es " + Resultado + ".";
+            }
         }
 
 

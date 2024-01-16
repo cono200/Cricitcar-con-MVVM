@@ -20,7 +20,7 @@
                        Text="{Binding Nombre}"
                   
                    Keyboard="Text"
-                   x:Name="Nombre"
+                  
                    
            />
             </Frame>
